@@ -65,6 +65,19 @@ target_link_libraries(lenet-loader
                         Importer
                         Support)
 
+add_executable(onnx-runner
+                 onnx.cpp)
+target_link_libraries(onnx-runner
+                      PRIVATE
+                        Base
+                        ExecutionEngine
+                        IR
+                        Importer
+                        GraphOptimizer
+                        Quantization
+                        Support
+                        LLVMSupport)
+
 if(GLOW_WITH_CPU)
   add_executable(resnet-verify
                    resnet-verify.cpp)
